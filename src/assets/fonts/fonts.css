@@ -1,0 +1,10 @@
+
+@font-face {
+	font-family: 'Suisse';
+	src: url('./SuisseIntl-Regular.otf') format('OpenType')
+}
+
+@font-face {
+	font-family: 'Ampersand';
+	src: url('./Ampersand.woff') format('WOFF')
+}
