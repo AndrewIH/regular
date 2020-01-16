@@ -1,7 +1,7 @@
 @import 'assets/vendors/likid.scss';
 
 $c-set-bg: #0A0A0A;
-$c-set-fg: #E4E4E4;
+$c-set-fg: #F2F2F2;
 
 :root {
   --c-bg: #{$c-set-bg};
@@ -22,6 +22,15 @@ $ease-out: cubic-bezier(.165, .84, .44, 1);
 	padding: 0;
 }
 
+.dark {
+  background-color: $c-bg;
+  color: $c-fg;
+}
+
+.white {
+  background-color: $c-fg !important;
+}
+
 body {
   font-family: 'Suisse', Helvetica, sans-serif;
   background-color: $c-fg;
@@ -29,6 +38,7 @@ body {
   width: 100vw;
   font-size: 0.85rem;
   line-height: 1.25rem;
+  transition: all 1s $ease-out;
 
   a {
     color: inherit;
@@ -39,19 +49,37 @@ body {
     }
   }
 
+  button {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+    border: none;
+    color: currentColor;
+    background: none;
+    padding: 0;
+      &:focus {
+        outline: none;
+      }
+
+      &:hover{
+        cursor: pointer;
+      }
+  }
+
   header {
+    z-index: 80;
     width: 100vw;
-    margin-top: 70px;
+    padding-top: 70px;
+    position: fixed;
+    top: 0;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
-    display: flex;
 
     .logo {
       display: inline-block;
     }
 
     ul {
-      @include likid(margin-left, 16);
+      @include likid(left, 18);
     }
 
     ul li {
@@ -59,10 +87,37 @@ body {
       list-style: none;
       margin-right: 30px;
     }
+
+    .mode-switcher {
+      @include likid(right, 2);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: $c-bg;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   .title {
+    display: block;
     margin-bottom: 5px;
+  }
+
+  .underline {
+    display: inline-block;
+    &:after {
+      content: '';
+      display: block;
+      margin-top: 3px;
+      height: 2px;
+      width: 100%;
+      opacity: 1;
+      background-color: $c-bg;
+      transition: opacity .6s $ease-out;
+    }
   }
 
   .c-type-img {
@@ -72,39 +127,56 @@ body {
     font-family: Ampersand;
     @include likid(font-size, 6.4);
     @include likid(line-height, 6.4);
-    margin-top: 225px;
+    margin-top: 325px;
     margin-bottom: 75px;
   }
 
   .c-type {
     width: 100vw;
+    display: grid;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
-    height: 300px;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    grid-auto-flow: dense;
 
     span {
       display: block;
     }
 
+    &-number {
+      grid-row-start: 1;
+      grid-column-start: 0;
+      grid-column-end: 2;
+      // @include likid(width, 3);
+    }
+
     &-date {
-      @include likid(width, 3);
-      @include likid(left, 4);
+      grid-column-start: 3;
+      grid-column-end: 6;
+      // @include likid(width, 3);
     }
 
     &-release {
-      @include likid(width, 3);
-      @include likid(left, 8);
+      grid-column-start: 8;
+      grid-column-end: 11;
+      // @include likid(width, 3);
+      // @include likid(left, 8);
     }
 
     &-creator {
-      @include likid(width, 3);
-      @include likid(left, 12);
+      grid-column-start: 13;
+      grid-column-end: 16;
+      // @include likid(width, 3);
+      // @include likid(left, 12);
     }
 
     &-infos {
-      @include likid(width, 3);
-      @include likid(left, 17);
-      @include likid(width, 10); 
+      grid-row-start: 1;
+      // @include likid(width, 3);
+      // @include likid(left, 17);
+      grid-column-start: 18;
+      grid-column-end: 28;
     }
 
   }
@@ -112,17 +184,47 @@ body {
   .c-type-examples {
 
     width: 100vw;
-    @include likid(padding-left, 2);
-    @include likid(padding-right, 2);
+
+    .title {
+      @include likid(margin-left, 4);
+    }
+
+    .example-1 {
+      position: relative;
+      z-index: 10;
+      @include likid(padding-left, 2);
+      @include likid(padding-right, 2);
+      @include likid(width, 14);
+      @include likid(margin-left, 2);
+    }
+
+    .example-2 {
+      position: relative;
+      z-index: 1;
+      @include likid(padding-left, 1);
+      @include likid(padding-right, 1);
+      width: 100vw;
+    }
+
+    .example-3 {
+      position: relative;
+      z-index: 10;
+      @include likid(padding-left, 2);
+      @include likid(padding-right, 2);
+      @include likid(width, 27);
+      @include likid(margin-left, 6);
+    }
+
+
 
     img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
     }
   }
 
   footer {
     margin-top: 175px;
-    margin-bottom: 175px;
     width: 100vw;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
@@ -130,9 +232,188 @@ body {
     .thanks {
       font-size: 60px;
       line-height: 60px;
+      font-family: Suisse Light;
+      margin-bottom: 175px;
 
       span {
         display: block;
+      }
+    }
+    .footer-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 70px;
+    }
+  }
+
+  .c-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: Suisse Light;
+    @include likid(font-size, 1);
+    line-height: 1.3;
+    @include likid(width, 19);
+    @include likid(padding-left, 5);
+
+    .infos-1 {
+      position: absolute;
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        margin-top: 3px;
+        height: 2px;
+        width: 100%;
+        opacity: 1;
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: currentColor;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+
+    &-data-1 {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0px;
+        content: '[1]';
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+
+    &-data-2 {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0px;
+        content: '[2]';
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+
+    &-data-3 {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0px;
+        content: '[3]';
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .c-data {
+    font-family: Apercu;
+
+    .active {
+      opacity: 1;
+    }
+    &-n1 {
+      @include likid(width, 6);
+      @include likid(right, 7);
+      bottom: 270px;
+      opacity: 0;
+    }
+    &-n2 {
+      @include likid(width, 7);
+      @include likid(right, 11);
+      bottom: 150px;
+      opacity: 0;
+    }
+    &-n3 {
+      @include likid(width, 6);
+      @include likid(right, 7);
+      bottom: 160px;
+      opacity: 0;
+    }
+  }
+
+  .c-types {
+    @include likid(padding-left, 2);
+    @include likid(padding-right, 2);
+    width: 100vw;
+    margin-top: 225px;
+
+    h1 {
+      @include likid(margin-left, 2);
+      font-family: Suisse Light;
+      font-weight: inherit;
+      font-size: 40px;
+      margin-bottom: 125px;
+    }
+
+    .c-types-order {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    ul li {
+      display: inline-block;
+      list-style: none;
+      margin-left: 30px;
+    }
+
+    &-wrapper {
+      display: flex;
+      border-bottom: 1px solid #DDDDDD;
+
+      .number {
+        margin-top: 40px;
+      }
+
+      .button {
+        margin-bottom: 40px;
+        align-self: flex-end;
+        @include likid(margin-left, 1);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .images {
+        @include likid(margin-left, 1);
+        @include likid(width, 19);
+        height: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        img {
+          width: 100%;
+          height: auto;
+          filter: invert(0);
+        }
       }
     }
   }

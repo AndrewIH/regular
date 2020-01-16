@@ -8,40 +8,43 @@
   <link rel="stylesheet" href="./src/assets/fonts/fonts.css">
   <link rel="stylesheet" href="./src/style.scss">
 </head>
-<body>
+
+<body data-barba="wrapper">
 
   <header>
-    <div class="logo"><a href="#">Regular</div>
-   	<ul>
-      <li><a href="#">All Types</a></li>
-      <li><a href="#">About</a></li>
+    <div class="likid logo"><a href="index.html">Regular</div>
+   	<ul class="likid menu">
+      <li><a href="types.html">All Types</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#">Blog</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
+    <div class="likid mode-switcher"></div>
   </header>
 
-  <main>
+  <div class="main" data-barba="container" data-barba-namespace="home">
 
     <div class="c-type-img">
       AMPERSAND
     </div>
 
     <div class="c-type">
-      <div class="likid c-type-number">
+      <div class="c-type-number">
         <span>[71]</span>
       </div>
-      <div class="likid c-type-date">
+      <div class="c-type-date">
         <span class="title">Type of the week :</span>
         <span>21 Septembre 2019</span>
       </div>
-      <div class="likid c-type-release">
+      <div class="c-type-release">
         <span class="title">Release :</span>
         <span>21 Septembre 2019</span>
       </div>
-      <div class="likid c-type-creator">
+      <div class="c-type-creator">
         <span class="title">Creator :</span>
         <span>STUDIO HARDAL</span>
       </div>
-      <div class="likid c-type-infos">
+      <div class="c-type-infos">
         <span class="title">Informations :</span>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum congue elementum. Sed mi mauris, iaculis et consequat sit amet, ullamcorper nec massa. Praesent vitae eros rhoncus mi vehicula placerat. </p>
       </div>
@@ -50,26 +53,28 @@
       <div class="c-type-examples">
         <span class="title">Examples :</span>
         <div class="example-1">
-          <img src="./src/assets/images/exp-1.png" alt="Example 1">
+          <img src="./src/assets/images/exp-3.png" alt="Example 1">
         </div>
         <div class="example-2">
           <img src="./src/assets/images/exp-2.png" alt="Example 2">
         </div>
         <div class="example-3">
-          <img src="./src/assets/images/exp-3.png" alt="Example 3">
+          <img src="./src/assets/images/exp-1.png" alt="Example 3">
         </div>
       </div>
 
-  </main>
+      <footer>
+        <div class="thanks">
+          <span>Thanks for checking this one out !</span>
+          <span>Don’t forget to <div class="underline">support the creator.</div></span>
+        </div>
+        <div class="footer-wrapper">
+          <button class="previous-type">← previous type</button>
+          <button class="scroll-up">scroll up</button>
+        </div>
+      </footer>
 
-  <footer>
-    <div class="thanks">
-      <span>Thanks for checking this one out !</span>
-      <span>Don’t forget to support the creator.</span>
-    </div>
-    <div class="previous-type">← previous type</div>
-    <div class="scroll-up">scroll up</div>
-  </footer>
+  </div>
 
   <script src="./src/main.js"></script>
 </body>

@@ -5,6 +5,16 @@
 }
 
 @font-face {
+	font-family: 'Suisse Light';
+	src: url('./SuisseIntl-Light.otf') format('OpenType')
+}
+
+@font-face {
+	font-family: 'Apercu';
+	src: url('./apercu.otf') format('OpenType')
+}
+
+@font-face {
 	font-family: 'Ampersand';
 	src: url('./Ampersand.woff') format('WOFF')
 }
