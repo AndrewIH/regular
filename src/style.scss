@@ -1,7 +1,7 @@
 @import 'assets/vendors/likid.scss';
 
 $c-set-bg: #0A0A0A;
-$c-set-fg: #F2F2F2;
+$c-set-fg: white;
 
 :root {
   --c-bg: #{$c-set-bg};
@@ -29,6 +29,10 @@ $ease-out: cubic-bezier(.165, .84, .44, 1);
 
 .white {
   background-color: $c-fg !important;
+}
+
+.filter-img {
+  filter: invert(1);
 }
 
 body {
@@ -334,25 +338,25 @@ body {
     font-family: Apercu;
 
     .active {
-      opacity: 1;
+      display: block;
     }
     &-n1 {
       @include likid(width, 6);
       @include likid(right, 7);
       bottom: 270px;
-      opacity: 0;
+      display: none;
     }
     &-n2 {
       @include likid(width, 7);
       @include likid(right, 11);
       bottom: 150px;
-      opacity: 0;
+      display: none;
     }
     &-n3 {
       @include likid(width, 6);
       @include likid(right, 7);
       bottom: 160px;
-      opacity: 0;
+      display: none;
     }
   }
 
@@ -408,6 +412,7 @@ body {
         height: auto;
         margin-top: 40px;
         margin-bottom: 40px;
+        transition: all 1s $ease-out;
 
         img {
           width: 100%;

@@ -32,11 +32,15 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
+    "content": "^4.0.6",
+    "content.js": "^0.1.0",
     "gsap": "^3.0.5",
     "jquery": "^3.4.1",
     "jscroll": "^2.4.1",
     "locomotive-scroll": "^3.2.7",
     "modularload": "^1.2.4",
+    "prismic-dom": "^2.1.0",
+    "prismic-javascript": "^2.1.5",
     "smooth-scrolling": "^2.3.12"
   }
 }
