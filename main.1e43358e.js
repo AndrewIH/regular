@@ -594,18 +594,35 @@ var global = arguments[3];
 var colorMode = document.querySelector('.mode-switcher');
 var body = document.querySelector('body');
 var images = document.querySelectorAll('.images');
-var y = window.scrollY;
+var scrollY;
 var page;
 document.querySelector('#email').addEventListener('click', function () {
   document.querySelector('.pop-up').classList.add('flex');
   console.log(y);
 });
-window.addEventListener('click', function () {
-  console.log(y);
-});
 document.querySelector('.p-mail .close').addEventListener('click', function () {
   document.querySelector('.pop-up').classList.remove('flex');
 });
+window.addEventListener('scroll', function () {
+  y = window.scrollY;
+});
+
+function sliderOpacity() {
+  var target = document.querySelector('.c-slider');
+  var targetHeight = target.clientHeight;
+  window.addEventListener('scroll', function () {
+    var scrollPercent = Math.floor(y / targetHeight * 100);
+
+    if (scrollPercent < 100) {
+      console.log(scrollPercent);
+      target.style.opacity = 100 - scrollPercent * 1.65 + '%';
+    } else {
+      return;
+    }
+  });
+}
+
+sliderOpacity();
 
 var prismicContent = function prismicContent() {
   var Prismic = require('prismic-javascript');
@@ -684,7 +701,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65157" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56674" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
