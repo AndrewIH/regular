@@ -1,0 +1,22 @@
+
+@font-face {
+	font-family: 'Suisse';
+	src: url('/SuisseIntl-Regular.a3b65621.otf') format('OpenType')
+}
+
+@font-face {
+	font-family: 'Suisse Light';
+	src: url('/SuisseIntl-Light.866ecbe7.otf') format('OpenType')
+}
+
+@font-face {
+	font-family: 'Apercu';
+	src: url('/apercu.3a04fe83.otf') format('OpenType')
+}
+
+@font-face {
+	font-family: 'Ampersand';
+	src: url('/Ampersand.d72715a5.woff') format('WOFF')
+}
+
+/*# sourceMappingURL=/fonts.b7327172.css.map */
