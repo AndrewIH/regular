@@ -5,7 +5,7 @@
 const colorMode = document.querySelector('.mode-switcher')
 const body = document.querySelector('body')
 const images = document.querySelectorAll('.images')
-const y = window.scrollY;
+let scrollY;
 let page;
 
 document.querySelector('#email').addEventListener('click', function(){
@@ -13,13 +13,31 @@ document.querySelector('#email').addEventListener('click', function(){
   console.log(y)
 })
 
-window.addEventListener('click', function(){
-  console.log(y)
-})
-
 document.querySelector('.p-mail .close').addEventListener('click', function(){
   document.querySelector('.pop-up').classList.remove('flex')
 })
+
+window.addEventListener('scroll', function(){
+  y = window.scrollY;
+})
+
+function sliderOpacity() {
+  const target = document.querySelector('.c-slider')
+  const targetHeight = target.clientHeight
+
+  window.addEventListener('scroll', function(){
+    const scrollPercent = Math.floor((y / targetHeight) * 100)
+
+    if(scrollPercent < 100) {
+      console.log(scrollPercent)
+      target.style.opacity = 100 - (scrollPercent * 1.65) + '%';
+    } else {
+      return;
+    }
+  })
+}
+
+sliderOpacity()
 
 const prismicContent = () => {
   const Prismic = require('prismic-javascript');

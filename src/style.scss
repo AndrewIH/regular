@@ -41,11 +41,11 @@ html {
 
 body {
   font-family: Suisse, Helvetica, sans-serif;
-  background-color: white;
+  background-color: black;
   color: $c-bg;
   width: 100vw;
   height: 100%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.25;
   transition: all 1s $ease-out;
 
@@ -144,9 +144,12 @@ body {
   }
 
   .c-slider {
-    position: relative;
+    position: fixed;
+    top: 0;
     width: 100vw;
     height: 100vh;
+    opacity: 100%;
+    z-index: -1;
     color: white;
     background-color: black;
 
@@ -298,6 +301,7 @@ body {
   }
 
   .c-content {
+    margin-top: 100vh;
     width: 100vw;
     height: 80vh;
     background-color: white;
@@ -703,7 +707,6 @@ body {
         &:hover {
           opacity: .65;
         }
-        font-size: .875rem;
       }
 
       &-content {
