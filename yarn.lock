@@ -3590,10 +3590,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-locomotive-scroll@^3.2.7:
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-3.2.7.tgz#227c97fb1fd8e8562f4d3dea802661897b10bd2c"
-  integrity sha512-8QneKtZ1zQWQ9Uq/CI3Hp8aoQ5wdud+lcwKg2Og+Sm4dAMgSHnTGklpKKS6fg045Q5qwVT/y0iR7ee40gXUDAw==
+locomotive-scroll@^3.2.9:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-3.2.9.tgz#6d92d0af576b660132c897c1ef2c59e3956cf88a"
+  integrity sha512-MJU2NUICwzi9YEAu13drIuTMrgfdkL9U3ycGNkxAgeVILFjkhYSZLGRtCQmUyLFZHOXor5TYet8J+i2uvSVz5A==
   dependencies:
     virtual-scroll "git+https://github.com/ayamflow/virtual-scroll.git"
 

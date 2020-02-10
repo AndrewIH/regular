@@ -35,13 +35,18 @@ $ease-out: cubic-bezier(.165, .84, .44, 1);
   filter: invert(1);
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  font-family: 'Suisse', Helvetica, sans-serif;
-  background-color: $c-fg;
+  font-family: Suisse, Helvetica, sans-serif;
+  background-color: white;
   color: $c-bg;
   width: 100vw;
-  font-size: 0.85rem;
-  line-height: 1.25rem;
+  height: 100%;
+  font-size: 1rem;
+  line-height: 1.25;
   transition: all 1s $ease-out;
 
   a {
@@ -50,12 +55,12 @@ body {
 
     &:hover {
       cursor: pointer;
-      opacity: .7;
+      opacity: .65;
     }
   }
 
   button {
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.25rem;
     border: none;
     color: currentColor;
@@ -70,20 +75,23 @@ body {
       }
   }
 
+
   ul li {
     list-style: none;
   }
 
   header {
     position: fixed;
-    top: 0;
-    z-index: 100;
     width: 100vw;
+    mix-blend-mode:difference;
+    top: 0;
+    z-index: 900;
     padding-top: 70px;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
 
     .logo {
+      color: white;
       display: inline-block;
     }
 
@@ -92,6 +100,7 @@ body {
     }
 
     ul li {
+      color: white;
       display: inline-block;
       margin-right: 30px;
     }
@@ -108,6 +117,11 @@ body {
         cursor: pointer;
       }
     }
+  }
+
+  .main {
+    width: 100vw;
+    background-color: white;
   }
 
   .title {
@@ -130,10 +144,29 @@ body {
   }
 
   .c-slider {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: black;
     color: white;
+    background-color: black;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+
+    &-footer {
+      position: absolute;
+      @include likid(padding-left, 2);
+      @include likid(padding-right, 2);
+      margin-bottom: 70px;
+      width: 50%;
+      bottom: 0;
+
+      span {
+        display: block;
+      }
+    }
 
     &-type {
       width: 100%;
@@ -158,20 +191,76 @@ body {
         img {
           @include likid(width, 28);
           height: auto;
-          filter: invert(1);
           margin-bottom: 50px;
+          filter: invert(1);
         }
       }
     }
   }
 
-  .c-uses {
+  .c-posts {
+    background-color: $c-fg;
     color: black;
+    width: 100vw;
+    margin-top: 75px;
+    @include likid(padding-left, 2);
+    @include likid(padding-right, 2); 
+
+    &-title {
+      font-size: 1.7rem;
+      margin-bottom: 40px;
+    }
+
+    .post {
+      height: auto;
+      width: 100%;
+      border-top: 1px solid #DDDDDD;
+      display: grid;
+      grid-template-columns: repeat(32, 1fr);
+      grid-auto-flow: dense;
+      align-items: center;
+
+      &:last-child {
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      &:hover {
+        cursor: pointer;
+        .post-date, .post-title, .post-link {
+          opacity: 0.65
+        }
+      }
+
+      &-date {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      &-title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        grid-column-start: 6;
+        grid-column-end: 24;
+        @include likid(font-size, 1.55);
+        font-family: Suisse Light;
+        text-transform: uppercase;
+      }
+
+      &-link {
+        grid-column-start: 24;
+        grid-column-end: 32;
+      }
+    }
+  }
+
+  .c-uses {
     width: 100vw;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
 
     &-title {
+      font-size: 1.7rem;
+      width: 100%;
       margin-bottom: 40px;
     }
 
@@ -196,14 +285,13 @@ body {
           width: 100%;
           object-fit: cover;
           height: 100%;
-          transform: scale(1);
-          transition: transform .85s $ease-out, opacity .6s $ease-out;
         }
       }
       &:hover {
         cursor: pointer;
-        .use-img img {
-          transform: scale(1.1);
+        opacity: .65;
+        a {
+          opacity: .65
         }
       }
     }
@@ -224,10 +312,10 @@ body {
       h1 {
         @include likid(width, 16);
         @include likid(font-size, 1.55);
-        font-family: Suisse Light;
-        @include likid(line-height, 2);
+        line-height: 1.3;
         margin-bottom: 30px;
-        font-weight: 400;
+        font-weight: 200;
+        font-family: Suisse Light;
 
         .where {
           display: inline-block;
@@ -384,7 +472,6 @@ body {
     .thanks {
       font-size: 60px;
       line-height: 60px;
-      font-family: Suisse Light;
       margin-bottom: 175px;
 
       span {
@@ -399,12 +486,18 @@ body {
     }
   }
 
-  .c-about {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .about {
     width: 100vw;
     height: 100vh;
+    background-color: white;
+
+  }
+
+  .c-about {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     font-family: Suisse Light;
@@ -512,11 +605,11 @@ body {
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
     width: 100vw;
-    margin-top: 225px;
+    padding-top: 225px;
+    background-color: white;
 
     h1 {
-      font-size: 0.85rem;
-      line-height: 1.25rem;
+      font-size: 1rem;
       font-weight: 400;
       margin-bottom: 125px;
     }
@@ -539,6 +632,13 @@ body {
       display: flex;
       border-bottom: 1px solid #DDDDDD;
 
+      &:hover {
+        .number, .button, .images {
+          opacity: 0.65;
+        }
+        cursor: pointer;
+      }
+
       .number {
         margin-top: 40px;
       }
@@ -547,10 +647,6 @@ body {
         margin-bottom: 40px;
         align-self: flex-end;
         @include likid(margin-left, 1);
-
-        &:hover {
-          text-decoration: underline;
-        }
       }
 
       .images {
@@ -559,7 +655,6 @@ body {
         height: auto;
         margin-top: 40px;
         margin-bottom: 40px;
-        transition: all 1s $ease-out;
 
         img {
           width: 100%;
@@ -569,4 +664,140 @@ body {
       }
     }
   }
+
+  .flex {
+    display: flex !important;
+  }
+
+  .pop-up {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+
+    .p-mail {
+      position: relative;
+      @include likid(width, 10);
+      min-width: 400px;
+      background-color: white;
+      padding: 30px;
+
+      &-title {
+        width: 100%;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-size: 50px;
+        font-family: Suisse Light;
+      }
+
+      .close {
+        position: absolute;
+        right: 30px;
+        &:hover {
+          opacity: .65;
+        }
+        font-size: .875rem;
+      }
+
+      &-content {
+        margin-left: 15%;
+        width: 70%;
+        margin-bottom: 40px;
+      }
+
+      &-input {
+        width: 70%;
+        margin-left: 15%;
+        border: none;
+        font-size: inherit;
+        color: black;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #DDDDDD;
+
+        &:hover {
+          border-bottom: 1px solid black;
+        }
+
+        &::placeholder {
+          color: #DDDDDD;
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid black;
+        }
+
+        &:focus::placeholder {
+          color: transparent;
+        }
+      }
+
+      .wrapper {
+        margin-top: 20px;
+        display: block;
+        width: 70%;
+        height: auto;
+        margin-left: 15%;
+        margin-bottom: 80px;
+      }
+
+      input[type=checkbox] {
+        position: absolute;
+        display: inline-block;
+        visibility: hidden;
+      }
+
+      input[type=checkbox]:checked + label {
+        color: black;
+      }
+
+      input[type=checkbox]:checked + label:after {
+        opacity: 1;
+      }
+
+      .subscribe {
+        margin-left: 15%;
+        text-align: left;
+        margin-bottom: 40px;
+        &:hover {
+          opacity: .65;
+        }
+      }
+
+      label {
+        display: inline-block;
+        text-transform: uppercase;
+        margin-right: 10px;
+        color: #DDDDDD;
+        &:hover {
+          cursor: pointer;
+          color: black;
+        }
+        &:after {
+          content: '';
+          display: block;
+          margin-top: 3px;
+          height: 1px;
+          width: 100%;
+          opacity: 0;
+          background-color: black;
+        }
+      }
+
+    }
+  }
+
+}
+
+.c-scrollbar {
+  display: none;
 }

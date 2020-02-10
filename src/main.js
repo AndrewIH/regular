@@ -1,11 +1,25 @@
 // import barba from '@barba/core'
 // import gsap from 'gsap'
 
+
 const colorMode = document.querySelector('.mode-switcher')
 const body = document.querySelector('body')
 const images = document.querySelectorAll('.images')
+const y = window.scrollY;
 let page;
 
+document.querySelector('#email').addEventListener('click', function(){
+  document.querySelector('.pop-up').classList.add('flex')
+  console.log(y)
+})
+
+window.addEventListener('click', function(){
+  console.log(y)
+})
+
+document.querySelector('.p-mail .close').addEventListener('click', function(){
+  document.querySelector('.pop-up').classList.remove('flex')
+})
 
 const prismicContent = () => {
   const Prismic = require('prismic-javascript');
@@ -25,17 +39,6 @@ const prismicContent = () => {
 prismicContent()
 
 
-colorMode.addEventListener('click', e => {
-  darkMode()
-})
-
-const darkMode = () => {
-  body.classList.toggle('dark')
-  colorMode.classList.toggle('white')
-  images.forEach(function(image){
-    image.classList.toggle('filter-img')
-  })
-}
 
 const aboutHover = [
   document.querySelector('.c-about-data-1'),
@@ -49,12 +52,13 @@ const aboutData = [
   document.querySelector('.c-data-n3')
 ]
 
-aboutHover.forEach(function(item, nb) {
-  item.addEventListener('mouseenter', function(){
-    aboutData[nb].classList.add('active')
-    setTimeout(function(){aboutData[nb].classList.remove('active')}, 5000)
-  })
-})
+// console.log(aboutHover)
+// aboutHover.forEach(function(item, nb) {
+//   item.addEventListener('mouseenter', function(){
+//     aboutData[nb].classList.add('active')
+//     setTimeout(function(){aboutData[nb].classList.remove('active')}, 5000)
+//   })
+// })
 
 
 
