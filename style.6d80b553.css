@@ -38,6 +38,10 @@ body {
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 .dark {
   background-color: var(--c-bg);
   color: var(--c-fg);
@@ -51,8 +55,8 @@ body {
   filter: invert(1);
 }
 
-html {
-  height: 100%;
+.modal-open {
+  overflow: hidden;
 }
 
 body {
@@ -153,7 +157,7 @@ body .c-slider {
   top: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 100%;
+  opacity: 50%;
   z-index: -1;
   color: white;
   background-color: black;
@@ -293,7 +297,8 @@ body .c-uses .use:hover a {
 body .c-content {
   margin-top: 100vh;
   width: 100vw;
-  height: 80vh;
+  padding-top: 12.5vw;
+  padding-bottom: 12.5vw;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -302,11 +307,11 @@ body .c-content {
   color: black;
 }
 body .c-content-main h1 {
-  width: calc(100vw * 16 / 36 + 0px);
-  width: calc(100vw * 16 / 36 + 0px);
-  font-size: calc(100vw * 1.55 / 36 + 0px);
-  font-size: calc(100vw * 1.55 / 36 + 0px);
-  line-height: 1.3;
+  width: calc(100vw * 20 / 36 + 0px);
+  width: calc(100vw * 20 / 36 + 0px);
+  font-size: calc(100vw * 2.45 / 36 + 0px);
+  font-size: calc(100vw * 2.45 / 36 + 0px);
+  line-height: 1.2;
   margin-bottom: 30px;
   font-weight: 200;
   font-family: Suisse Light;
@@ -323,7 +328,7 @@ body .c-content-main h1 .where:after {
   line-height: 18px;
 }
 body .c-content-main h1 .where:hover {
-  cursor: pointer;
+  cursor: help;
 }
 body .c-content-main h1 .where:hover:before {
   transform: scaleX(1);
@@ -465,22 +470,18 @@ body footer .footer-wrapper {
 }
 body .about {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: white;
 }
 body .c-about {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
+  padding-top: 20vw;
+  padding-bottom: 5vw;
   font-family: Suisse Light;
-  font-size: calc(100vw * 1 / 36 + 0px);
-  font-size: calc(100vw * 1 / 36 + 0px);
-  line-height: 1.3;
-  width: calc(100vw * 19 / 36 + 0px);
-  width: calc(100vw * 19 / 36 + 0px);
+  width: calc(100vw * 24 / 36 + 0px);
+  width: calc(100vw * 24 / 36 + 0px);
+  font-size: calc(100vw * 2.45 / 36 + 0px);
+  font-size: calc(100vw * 2.45 / 36 + 0px);
+  line-height: 1.2;
   padding-left: calc(100vw * 5 / 36 + 0px);
   padding-left: calc(100vw * 5 / 36 + 0px);
 }
@@ -494,7 +495,7 @@ body .c-about span {
   position: relative;
 }
 body .c-about span:hover {
-  cursor: pointer;
+  cursor: help;
 }
 body .c-about span:before {
   content: "";
@@ -641,12 +642,13 @@ body .pop-up {
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  opacity: 1;
+  opacity: 0;
   justify-content: center;
   align-items: center;
 }
 body .pop-up .p-mail {
   position: relative;
+  z-index: 60;
   width: calc(100vw * 10 / 36 + 0px);
   width: calc(100vw * 10 / 36 + 0px);
   min-width: 400px;

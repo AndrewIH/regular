@@ -10,6 +10,11 @@
 }
 
 @font-face {
+	font-family: 'Suisse Thin';
+	src: url('/SuisseIntl-Thin.f67ad8c0.otf') format('OpenType')
+}
+
+@font-face {
 	font-family: 'Apercu';
 	src: url('/apercu.3a04fe83.otf') format('OpenType')
 }
