@@ -5616,56 +5616,6 @@ window.addEventListener('scroll', function () {
   scrollY = window.scrollY;
 });
 
-function modalStart() {
-  document.querySelector('#email').addEventListener('click', function () {
-    document.querySelector('.pop-up').classList.add('flex');
-    body.classList.add('modal-open');
-
-    var tl = _gsap.default.timeline();
-
-    tl.fromTo('.pop-up', {
-      autoAlpha: 0
-    }, {
-      autoAlpha: 1,
-      duration: 0.6,
-      ease: 'power3.out'
-    }).fromTo('.p-mail', {
-      autoAlpha: 0,
-      y: 40
-    }, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, "-=0.4");
-  });
-  document.querySelector('.p-mail .close').addEventListener('click', function () {
-    var tl = _gsap.default.timeline();
-
-    var done = function done() {
-      document.querySelector('.pop-up').classList.remove('flex');
-    };
-
-    body.classList.remove('modal-open');
-    tl.fromTo('.pop-up', {
-      autoAlpha: 1
-    }, {
-      autoAlpha: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }).fromTo('.p-mail', {
-      autoAlpha: 1,
-      y: 0
-    }, {
-      autoAlpha: 0,
-      y: 40,
-      duration: 0.6,
-      ease: 'power3.out',
-      onComplete: done
-    }, "-=0.6");
-  });
-}
-
 function sliderOpacity() {
   var target = document.querySelector('.c-slider');
   var targetHeight = target.clientHeight;
@@ -5688,7 +5638,6 @@ function sliderOpacity() {
 }
 
 if (body.getAttribute('namespace') === 'home') {
-  modalStart();
   sliderOpacity();
 }
 
@@ -5733,7 +5682,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50822" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60949" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
