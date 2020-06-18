@@ -4,19 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>REGULAR</title>
+  <title>Home - Regular</title>
+  <meta name="keywords" content="typography, typeface, inspiration, design, type"/>
+  <meta name="description" content="Just good types, 2 times a week."/>
   <link rel="stylesheet" href="./src/assets/fonts/fonts.css">
   <link rel="stylesheet" href="./src/style.scss">
+
+  <meta name="og:title" content="Regular"/>
+  <meta name="og:type" content="typography"/>
+  <meta name="og:image" content="./src/assets/images/og_image.jpg"/>
+  <meta name="og:site_name" content="Regular"/>
+  <meta name="og:description" content="Just good types, 2 times a week."/>
+
+  <link rel="icon" href="./src/assets/images/favicon32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./src/assets/images/favicon16.png" sizes="16x16" type="image/png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169971498-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169971498-1');
+  </script>
 </head>
 
-<body data-barba="wrapper" id="js-scroll">
+<body data-barba="wrapper" id="js-scroll" namespace="home">
 
   <header>
     <div class="likid logo"><a href="index.html">Regular</div>
    	<ul class="likid menu">
       <li><a href="types.html">All Types</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="#">Blog</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </header>
@@ -24,14 +44,16 @@
   <div class="main" data-barba="container" data-barba-namespace="home">
 
     <div class="c-slider">
-      <div class="c-slider-type">
-        <div class="c-slider-type-wrapper">
-          <img src="./src/assets/images/ampersand.png"></img>
-          <div class="c-slider-type-content">
-            <div class="date">21 June 2020</div>
-            <div class="creator">by HARDAL STUDIO</div>
-            <a class="button">Check this font ↗</a>
-          </div>
+        <div class="c-slider-type">
+          <div class="c-slider-type-wrapper">
+            <a href="https://hardalstudio.com/ampersand">
+              <img src="./src/assets/images/ampersand.png"></img>
+            </a>
+            <div class="c-slider-type-content">
+              <div class="date">17 June 2020</div>
+              <div class="creator">by HARDAL STUDIO</div>
+              <a class="button" href="https://hardalstudio.com/ampersand">Check this font ↗</a>
+            </div>
         </div>
       </div>
       <div class="c-slider-footer">
@@ -75,27 +97,35 @@
       <div class="c-uses-wrapper">
         <div class="use">
           <div class="use-img">
-            <img src="./src/assets/images/use_1.jpg" alt="Ben Mingo - David William Baum">
+            <a href="https://www.northeastshop.com/blogs/news/ben-mingo-david-william-baum">
+              <img src="./src/assets/images/use_1.jpg" alt="Ben Mingo - David William Baum">
+            </a>
           </div>
-          <a href="#">Ben Mingo : David William Baum</a>
+          <a href="https://www.northeastshop.com/blogs/news/ben-mingo-david-william-baum">Ben Mingo : David William Baum</a>
         </div>
         <div class="use">
           <div class="use-img">
-            <img src="./src/assets/images/use_3.jpg" alt="Nikolas Type : Grand Slang">
+            <a href="http://nikolaswrobel.com/work/grand-slang-font/">
+              <img src="./src/assets/images/use_3.jpg" alt="Nikolas Type : Grand Slang">
+            </a>
           </div>
-          <a href="#">Nikolas Type : Grand Slang</a>
+          <a href="http://nikolaswrobel.com/work/grand-slang-font/">Nikolas Type : Grand Slang</a>
         </div>
         <div class="use">
           <div class="use-img">
-            <img src="./src/assets/images/use_2.jpg" alt="Marina Veziko : Exhibition">
+            <a href="http://marinaveziko.com/rajaton-exhibition/">
+              <img src="./src/assets/images/use_2.jpg" alt="Marina Veziko : Exhibition">
+            </a>
           </div>
-          <a href="#">Marina Veziko : Exhibition</a>
+          <a href="http://marinaveziko.com/rajaton-exhibition/">Marina Veziko : Exhibition</a>
         </div>
         <div class="use">
           <div class="use-img">
-            <img src="./src/assets/images/use_2.jpg" alt="Marina Veziko : Exhibition">
+            <a href="https://editorialnew.com/">
+              <img src="./src/assets/images/use_4.jpg" alt="Pangram Pangram : Editorial New">
+            </a>
           </div>
-          <a href="#">Marina Veziko : Exhibition</a>
+          <a href="https://editorialnew.com/">Pangram Pangram : Editorial New</a>
         </div>
       </div>
     </div>
@@ -103,40 +133,20 @@
     <div class="c-posts">
       <div class="c-posts-title">Recent Posts</div>
       <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">HUGO JOURDAN : ITW</div>
-        <a class="post-link" href="#">Check this article ↗</a>
+        <div class="post-date">2020.05.20</div>
+        <a class="post-title" href="https://medium.com/@iHrvoje/typography-inspiration-may-2020-font-selection-444097583da2">Typography Inspiration / May 2020</a>
+        <a class="post-link" href="https://medium.com/@iHrvoje/typography-inspiration-may-2020-font-selection-444097583da2">Check this article ↗</a>
       </div>
       <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">Montly Recap 03</div>
-        <a class="post-link" href="#">Check this article ↗</a>
-      </div>
-      <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">Montly Recap 02</div>
-        <a class="post-link" href="#">Check this article ↗</a>
-      </div>
-      <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">Montly Recap 01</div>
-        <a class="post-link" href="#">Check this article ↗</a>
-      </div>
-      <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">COLLECTION 01</div>
-        <a class="post-link" href="#">Check this article ↗</a>
-      </div>
-      <div class="post">
-        <div class="post-date">2020.16.03</div>
-        <div class="post-title">MOST FAMOUS ONES</div>
-        <a class="post-link" href="#">Check this article ↗</a>
+        <div class="post-date">2019.04.14</div>
+        <a class="post-title" href="https://medium.com/@iHrvoje/typography-inspiration-may-2020-font-selection-444097583da2">Typography Inspiration / April 2019</a>
+        <a class="post-link" href="https://medium.com/@iHrvoje/typography-inspiration-april-2019-font-selection-378f6e5d640d">Check this article ↗</a>
       </div>
     </div>
 
     <footer>
       <div class="footer-wrapper">
-        <button class="copyright">Copyright © 2020 - All Rights Reserved.</button>
+        <span class="copyright">Copyright © 2020 - All Rights Reserved.</span>
         <button class="scroll-up">scroll up</button>
       </div>
     </footer>

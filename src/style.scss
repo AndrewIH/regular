@@ -14,6 +14,14 @@ $c-fg: var(--c-fg);
 
 $ease-out: cubic-bezier(.165, .84, .44, 1);
 
+@mixin mobile {
+  @media (max-width: 1100px) { @content; }
+}
+
+@mixin xs {
+  @media (max-width: 600px) { @content; }
+}
+
 
 
 * {
@@ -93,20 +101,40 @@ body {
     padding-top: 70px;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
+    @include mobile {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    @include mobile {
+      padding-top: 25px;
+    }
 
     .logo {
+      z-index: 50;
       color: white;
       display: inline-block;
     }
 
     ul {
-      @include likid(left, 18);
+      @include likid(left, 20);
+      @include mobile {
+        left: auto;
+        right: 25px;
+        width: 100%;
+        text-align: right;
+      }
     }
 
     ul li {
       color: white;
       display: inline-block;
       margin-right: 30px;
+
+      @include mobile {
+        margin-right: 0px;
+        margin-left: 20px;
+      }
     }
 
     .mode-switcher {
@@ -157,18 +185,21 @@ body {
     color: white;
     background-color: black;
 
-    &:hover {
-      cursor: pointer;
-    }
-
-
     &-footer {
       position: absolute;
       @include likid(padding-left, 2);
       @include likid(padding-right, 2);
+      @include mobile {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
       margin-bottom: 70px;
       width: 50%;
       bottom: 0;
+
+      @include mobile {
+        margin-bottom: 25px;
+      }
 
       span {
         display: block;
@@ -191,27 +222,46 @@ body {
         .button {
           display: inline-block;
           float: right;
+          @include mobile {
+            float: none;
+            display: none;
+          }
         }
       }
 
       &-wrapper {
+
+        @include mobile {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
         img {
           @include likid(width, 28);
           height: auto;
           margin-bottom: 50px;
           filter: invert(1);
+
+          @include mobile {
+            width: calc(100vw - 40px);
+          }
         }
       }
     }
   }
 
   .c-posts {
-    background-color: $c-fg;
+    background-color: white;
     color: black;
     width: 100vw;
     margin-top: 75px;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2); 
+    @include mobile {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
 
     &-title {
       font-size: 1.7rem;
@@ -251,19 +301,34 @@ body {
         @include likid(font-size, 1.55);
         font-family: Suisse Light;
         text-transform: uppercase;
+
+        @include mobile {
+          font-size: 0.9rem;
+          font-family: Suisse;
+          grid-column-end: 36;
+        }
       }
 
       &-link {
         grid-column-start: 24;
-        grid-column-end: 32;
+        grid-column-end: 36;
+
+        @include mobile {
+          display: none;
+        }
       }
     }
   }
 
   .c-uses {
+    background-color: white;
     width: 100vw;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
+    @include mobile {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
 
     &-title {
       font-size: 1.7rem;
@@ -285,6 +350,10 @@ body {
         height: auto;
         @include likid(width, 10);
         @include likid(height, 10);
+        @include mobile {
+          width: calc(100vw - 50px);
+          height: calc(100vw - 50px)
+        }
         overflow: hidden;
         margin-bottom: 10px;
 
@@ -316,6 +385,11 @@ body {
     flex-direction: column;
     color: black;
 
+    @include mobile {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    }
+
     &-main {
 
       h1 {
@@ -326,6 +400,12 @@ body {
         font-weight: 200;
         font-family: Suisse Light;
 
+        @include mobile {
+          margin-top: 50px;
+          font-size: 48px;
+          width: calc(100vw - 80px)
+        }
+
         .where {
           display: inline-block;
           position: relative;
@@ -335,6 +415,9 @@ body {
             content: '[?]';
             font-size: 18px;
             line-height: 18px;
+            @include mobile {
+              display: none;
+            }
           }
 
           &:hover {
@@ -363,6 +446,10 @@ body {
     ul li {
       display: inline-block;
       margin-right: 30px;
+
+      @include mobile {
+        display: none;
+      }
       a {
         color: black;
       }
@@ -477,6 +564,15 @@ body {
     width: 100vw;
     @include likid(padding-left, 2);
     @include likid(padding-right, 2);
+    @include mobile {
+      margin-top: 100px;
+      padding-left: 25px;
+      padding-right: 25px;
+
+      .scroll-up {
+        display: none;
+      }
+    }
 
     .thanks {
       font-size: 60px;
@@ -487,11 +583,16 @@ body {
         display: block;
       }
     }
+
+
     .footer-wrapper {
       width: 100%;
       display: flex;
       justify-content: space-between;
       padding-bottom: 70px;
+      @include mobile {
+        padding-bottom: 25px;
+      }
     }
   }
 
@@ -510,6 +611,12 @@ body {
     @include likid(font-size, 2.45);
     line-height: 1.2;
     @include likid(padding-left, 5);
+
+    @include mobile {
+      font-size: 45px;
+      padding-top: 150px;
+      width: 90vw;
+    }
 
     .infos-1 {
       position: absolute;
@@ -587,21 +694,21 @@ body {
       display: block;
     }
     &-n1 {
-      @include likid(width, 6);
+      width: 250px;
       @include likid(right, 7);
       bottom: 270px;
       display: none;
     }
     &-n2 {
-      @include likid(width, 7);
-      @include likid(right, 11);
-      bottom: 150px;
+      width: 250px;
+      @include likid(right, 6);
+      bottom: 0px;
       display: none;
     }
     &-n3 {
-      @include likid(width, 6);
+      width: 250px;
       @include likid(right, 7);
-      bottom: 160px;
+      top: 120vh;
       display: none;
     }
   }
@@ -611,12 +718,19 @@ body {
     @include likid(padding-right, 2);
     width: 100vw;
     padding-top: 225px;
+
+    @include mobile {
+      padding-top: 150px;
+    }
     background-color: white;
 
     h1 {
       font-size: 1.7rem;
       font-weight: 400;
       margin-bottom: 125px;
+      @include mobile {
+        margin-bottom: 70px;
+      }
     }
 
     .c-types-order {
@@ -636,6 +750,12 @@ body {
     &-wrapper {
       display: flex;
       border-bottom: 1px solid #DDDDDD;
+
+      @include mobile {
+        button {
+          display: none;
+        }
+      }
 
       &:hover {
         .number, .button, .images {
@@ -660,6 +780,9 @@ body {
         height: auto;
         margin-top: 40px;
         margin-bottom: 40px;
+        @include mobile {
+          width: 90vw;
+        }
 
         img {
           width: 100%;
